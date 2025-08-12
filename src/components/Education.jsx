@@ -16,14 +16,16 @@ export default function Education() {
     let [index, setIndex] = useState(0);
     let currData = data.find((elem) => elem.id === data[index].id);
     function onChange(e, id, theId) {
-        setData(() => [
-            ...data.filter((curr) => {
-                return curr.id !== theId;
+        setData([
+            ...data.map((elem) => {
+                if (elem.id !== theId) {
+                    return elem;
+                }
+                return {
+                    ...elem,
+                    [id]: e.target.value,
+                };
             }),
-            {
-                ...currData,
-                [id]: e.target.value,
-            },
         ]);
     }
 
@@ -39,6 +41,23 @@ export default function Education() {
             },
         ]);
         setIndex(data.length);
+    }
+
+    function deleteData() {
+        setData([
+            ...data.filter((elem) => {
+                return elem.id !== currData.id;
+            }),
+        ]);
+        setIndex(Math.min(index, data.length - 2));
+    }
+
+    function nextData() {
+        setIndex(index === data.length - 1 ? 0 : index + 1);
+    }
+
+    function prevData() {
+        setIndex(index === 0 ? data.length - 1 : index - 1);
     }
 
     return (
@@ -80,6 +99,22 @@ export default function Education() {
             <button onClick={addData} type="button">
                 Add Education
             </button>
+            <button
+                onClick={deleteData}
+                type="button"
+                disabled={data.length === 1}
+            >
+                Delete
+            </button>
+            <button onClick={nextData} type="button">
+                Next
+            </button>
+            <button onClick={prevData} type="button">
+                Previous
+            </button>
+            <p>
+                Page {index + 1} of {data.length}
+            </p>
         </FieldSet>
     );
 }

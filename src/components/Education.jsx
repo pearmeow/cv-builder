@@ -109,18 +109,20 @@ export default function Education({ data, setData }) {
                 value={currData.location}
                 currId={currData.id}
             />
-            <button onClick={addData} type="button">
-                Add
-            </button>
-            <button onClick={deleteData} type="button">
-                Delete
-            </button>
-            <button onClick={nextData} type="button">
-                Next
-            </button>
-            <button onClick={prevData} type="button">
-                Previous
-            </button>
+            <div className="buttons">
+                <button onClick={addData} type="button">
+                    Add
+                </button>
+                <button onClick={deleteData} type="button">
+                    Delete
+                </button>
+                <button onClick={nextData} type="button">
+                    Next
+                </button>
+                <button onClick={prevData} type="button">
+                    Previous
+                </button>
+            </div>
             <p>
                 Page {index + 1} of {data.length}
             </p>

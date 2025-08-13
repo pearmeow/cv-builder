@@ -15,6 +15,7 @@ export default function FormField({
             <input
                 id={id}
                 type={type}
+                name={name}
                 onChange={(e) => onChange(e, fieldId, currId)}
                 value={value}
             />

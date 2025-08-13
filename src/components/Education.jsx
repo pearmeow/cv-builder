@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Education({ data, setData }) {
     let [index, setIndex] = useState(0);
     let currData = data.find((elem) => elem.id === data[index].id);
-    function onChange(e, id, theId) {
+    function onChange(e, fieldId, theId) {
         setData([
             ...data.map((elem) => {
                 if (elem.id !== theId) {
@@ -13,7 +13,7 @@ export default function Education({ data, setData }) {
                 }
                 return {
                     ...elem,
-                    [id]: e.target.value,
+                    [fieldId]: e.target.value,
                 };
             }),
         ]);

@@ -1,13 +1,23 @@
 import Edit from "./Edit.jsx";
-import CV from "./CV.jsx";
 import { useState } from "react";
 
 function App() {
     let [cvData, setCVData] = useState(<></>);
+    let [displayEdit, setDisplayEdit] = useState(true);
+    function onClick() {
+        setDisplayEdit(!displayEdit);
+    }
     return (
         <>
-            <Edit setCVData={setCVData} />
-            <CV>{cvData}</CV>
+            <button type="button" onClick={onClick}>
+                Edit CV
+            </button>
+            {displayEdit && (
+                <div className="edit">
+                    <Edit setCVData={setCVData} />
+                </div>
+            )}
+            <div className="cv">{cvData}</div>
         </>
     );
 }

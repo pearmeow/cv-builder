@@ -8,6 +8,13 @@ export default function General({ data, setData }) {
             [fieldId]: e.target.value,
         });
     }
+    function onClick() {
+        setData({
+            name: "",
+            email: "",
+            phone: "",
+        });
+    }
     return (
         <FieldSet name="General">
             <FormField
@@ -29,6 +36,9 @@ export default function General({ data, setData }) {
                 onChange={onChange}
                 value={data.phone}
             />
+            <button type="button" onClick={onClick}>
+                Delete
+            </button>
         </FieldSet>
     );
 }

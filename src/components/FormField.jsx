@@ -10,7 +10,7 @@ export default function FormField({
 }) {
     const [id, _] = useState(crypto.randomUUID());
     return (
-        <p>
+        <div className="inputContainer">
             <label htmlFor={id}>{name}: </label>
             <input
                 id={id}
@@ -19,6 +19,6 @@ export default function FormField({
                 onChange={(e) => onChange(e, fieldId, currId)}
                 value={value}
             />
-        </p>
+        </div>
     );
 }

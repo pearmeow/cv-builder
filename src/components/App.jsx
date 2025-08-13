@@ -1,4 +1,5 @@
 import Edit from "./Edit.jsx";
+import "../styles/App.css";
 import { useState } from "react";
 
 function App() {

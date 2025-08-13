@@ -35,12 +35,26 @@ export default function Education({ data, setData }) {
     }
 
     function deleteData() {
-        setData([
-            ...data.filter((elem) => {
-                return elem.id !== currData.id;
-            }),
-        ]);
-        setIndex(Math.min(index, data.length - 2));
+        if (data.length === 1) {
+            setData([
+                {
+                    id: crypto.randomUUID(),
+                    school: "",
+                    study: "",
+                    start: "",
+                    end: "",
+                    location: "",
+                },
+            ]);
+            setIndex(0);
+        } else {
+            setData([
+                ...data.filter((elem) => {
+                    return elem.id !== currData.id;
+                }),
+            ]);
+            setIndex(Math.min(index, data.length - 2));
+        }
     }
 
     function nextData() {
@@ -98,11 +112,7 @@ export default function Education({ data, setData }) {
             <button onClick={addData} type="button">
                 Add
             </button>
-            <button
-                onClick={deleteData}
-                type="button"
-                disabled={data.length === 1}
-            >
+            <button onClick={deleteData} type="button">
                 Delete
             </button>
             <button onClick={nextData} type="button">

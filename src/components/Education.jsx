@@ -2,17 +2,7 @@ import FieldSet from "./FieldSet.jsx";
 import FormField from "./FormField.jsx";
 import { useState } from "react";
 
-export default function Education() {
-    let randId = crypto.randomUUID();
-    let [data, setData] = useState([
-        {
-            id: randId,
-            school: "",
-            study: "",
-            start: "",
-            end: "",
-        },
-    ]);
+export default function Education({ data, setData }) {
     let [index, setIndex] = useState(0);
     let currData = data.find((elem) => elem.id === data[index].id);
     function onChange(e, id, theId) {
@@ -97,7 +87,7 @@ export default function Education() {
                 currId={currData.id}
             />
             <button onClick={addData} type="button">
-                Add Education
+                Add
             </button>
             <button
                 onClick={deleteData}

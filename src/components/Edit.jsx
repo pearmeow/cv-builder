@@ -14,7 +14,20 @@ export default function Edit({ setCVData }) {
         },
     ]);
     function rerenderCV() {
-        setCVData(<>I am hello</>);
+        const eduDom = [<h1>Education</h1>];
+        for (const data of eduData) {
+            eduDom.push(
+                <>
+                    <p>
+                        {data.study} at {data.school}
+                    </p>
+                    <p>
+                        {data.start} to {data.end && "now"}
+                    </p>
+                </>,
+            );
+        }
+        setCVData(<>{eduDom}</>);
     }
     return (
         <>

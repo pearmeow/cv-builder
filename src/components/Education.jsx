@@ -123,9 +123,9 @@ export default function Education({ data, setData }) {
                     Previous
                 </button>
             </div>
-            <p>
-                Page {index + 1} of {data.length}
-            </p>
+            <div className="page">
+                Education page {index + 1} of {data.length}
+            </div>
         </FieldSet>
     );
 }

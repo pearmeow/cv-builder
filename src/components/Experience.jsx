@@ -133,9 +133,9 @@ export default function Experience({ data, setData }) {
                     Previous
                 </button>
             </div>
-            <p>
-                Page {index + 1} of {data.length}
-            </p>
+            <div className="page">
+                Experiences page {index + 1} of {data.length}
+            </div>
         </FieldSet>
     );
 }

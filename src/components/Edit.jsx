@@ -2,12 +2,16 @@ import General from "./General.jsx";
 import Education from "./Education.jsx";
 import Experience from "./Experience.jsx";
 import { useState } from "react";
+import { format } from "date-fns";
 
-export default function Edit({ setCVData }) {
+export default function Edit({ setCVData, displayEdit, setDisplayEdit }) {
+    function toggleEdit() {
+        setDisplayEdit(!displayEdit);
+    }
     let [genData, setGenData] = useState({
         name: "pearmeow",
         email: "meowmeow@gmail.com",
-        phone: "1234567890",
+        phone: "(123)-456-7890",
     });
     let [eduData, setEduData] = useState([
         {
@@ -34,53 +38,95 @@ export default function Edit({ setCVData }) {
         const cvDom = [];
         cvDom.push(
             <>
-                <h1>{genData.name}</h1>
-                <p>
+                <h1 className="cvName">{genData.name}</h1>
+                <p className="generalDetails">
                     {genData.email} {genData.phone}
                 </p>
             </>,
         );
         cvDom.push(<h1>Education</h1>);
+        cvDom.push(
+            <div className="decorWrapper">
+                <div className="decorLine"></div>
+            </div>,
+        );
         for (const data of eduData) {
             cvDom.push(
                 <>
-                    <h2>
-                        {data.study} at {data.school}
-                    </h2>
-                    <h3>
-                        {data.start} to {data.end}
-                    </h3>
-                    <h3>{data.location}</h3>
+                    <div className="mainLine">
+                        <div>{data.study}</div>
+                        <div>
+                            {format(new Date(data.start), "MMMM yyyy")} -{" "}
+                            {data.end
+                                ? format(new Date(data.end), "MMMM yyyy")
+                                : "present"}
+                        </div>
+                    </div>
+                    <div className="subLine">
+                        <div>{data.school}</div>
+                        <div>{data.location}</div>
+                    </div>
                 </>,
             );
         }
         cvDom.push(<h1>Experience</h1>);
+        cvDom.push(
+            <div className="decorWrapper">
+                <div className="decorLine"></div>
+            </div>,
+        );
         for (const data of expData) {
             cvDom.push(
                 <>
-                    <h2>
-                        {data.positionTitle} at {data.companyName}
-                    </h2>
-                    <h3>
-                        {data.start} to {data.end || "now"}
-                    </h3>
-                    <h3>{data.location}</h3>
-                    {data.responsibilities}
+                    <div className="mainLine">
+                        <div>{data.companyName}</div>
+                        <div>
+                            {format(new Date(data.start), "MMMM yyyy")} -{" "}
+                            {data.end
+                                ? format(new Date(data.end), "MMMM yyyy")
+                                : "present"}
+                        </div>
+                    </div>
+                    <div className="subLine">
+                        <div>{data.positionTitle}</div>
+                        <div>{data.location}</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>{data.responsibilities}</li>
+                    </ul>
                 </>,
             );
         }
         setCVData(<>{cvDom}</>);
     }
     return (
-        <>
-            <form>
-                <General data={genData} setData={setGenData} />
-                <Education data={eduData} setData={setEduData} />
-                <Experience data={expData} setData={setExpData} />
-                <button type="button" onClick={rerenderCV}>
-                    Submit
+        <div className="formContainer">
+            <div className="topButtons">
+                <button type="button" className="editCV" onClick={toggleEdit}>
+                    Edit CV
                 </button>
-            </form>
-        </>
+                {displayEdit && (
+                    <button
+                        type="button"
+                        className="submitCV"
+                        onClick={() => {
+                            rerenderCV();
+                            toggleEdit();
+                        }}
+                    >
+                        Submit
+                    </button>
+                )}
+            </div>
+            {displayEdit && (
+                <>
+                    <form>
+                        <General data={genData} setData={setGenData} />
+                        <Education data={eduData} setData={setEduData} />
+                        <Experience data={expData} setData={setExpData} />
+                    </form>
+                </>
+            )}
+        </div>
     );
 }

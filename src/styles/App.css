@@ -9,6 +9,12 @@
   box-sizing: border-box;
 }
 
+.topButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 p {
   margin: 0;
 }
@@ -33,11 +39,107 @@ label {
   flex: 0 0 8rem;
 }
 
-.buttons {
+button {
+  background-color: blue;
+  border: 1px solid blue;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  padding: 5px 20px;
+  font-weight: 700;
+  font-family: sans-serif, serif;
+}
+
+.page {
   display: flex;
+  justify-content: center;
+}
+
+.buttons {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
   gap: 10px
 }
 
 .buttons>* {
   flex: 0;
+}
+
+.submitCV,
+.editCV {
+  font-size: 30px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 0;
+}
+
+.cv {
+  font-family: serif;
+  padding: 30px;
+}
+
+.cv div {
+  font-size: 21px;
+}
+
+h1 {
+  margin: 10px 0 0 0;
+
+}
+
+.cvName,
+.generalDetails {
+  text-align: center;
+}
+
+.generalDetails {
+  padding: 5px;
+}
+
+.decorWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.decorLine {
+  width: 100%;
+  border: 1px solid black;
+  margin: 10px 0;
+}
+
+.mainLine,
+.subLine {
+  display: flex;
+}
+
+.subLine>div:nth-child(1),
+.mainLine>div:nth-child(1) {
+  flex: 0 0 auto;
+}
+
+.subLine>div:nth-child(2),
+.mainLine>div:nth-child(2) {
+  flex: 1;
+  text-align: right;
+}
+
+.mainLine {
+  font-weight: 700;
+}
+
+.subLine {
+  font-style: italic;
+}
+
+ul {
+  margin: 5px 0;
+}
+
+li {
+  list-style-type: "- ";
 }

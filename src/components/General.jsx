@@ -36,9 +36,11 @@ export default function General({ data, setData }) {
                 onChange={onChange}
                 value={data.phone}
             />
-            <button type="button" onClick={onClick}>
-                Delete
-            </button>
+            <div className="buttons">
+                <button type="button" onClick={onClick}>
+                    Delete
+                </button>
+            </div>
         </FieldSet>
     );
 }

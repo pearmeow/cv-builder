@@ -70,7 +70,7 @@ export default function Experience({ data, setData }) {
     return (
         <FieldSet name="Experience">
             <FormField
-                name="company name"
+                name="Company"
                 key="companyName"
                 fieldId="companyName"
                 onChange={onChange}
@@ -78,7 +78,7 @@ export default function Experience({ data, setData }) {
                 currId={currData.id}
             />
             <FormField
-                name="position title"
+                name="Position"
                 key="positionTitle"
                 fieldId="positionTitle"
                 onChange={onChange}
@@ -86,7 +86,7 @@ export default function Experience({ data, setData }) {
                 currId={currData.id}
             />
             <FormField
-                name="responsibilities"
+                name="Description"
                 key="responsibilities"
                 fieldId="responsibilities"
                 onChange={onChange}
@@ -94,7 +94,7 @@ export default function Experience({ data, setData }) {
                 currId={currData.id}
             />
             <FormField
-                name="start date"
+                name="Start"
                 type="date"
                 key="start"
                 fieldId="start"
@@ -103,7 +103,7 @@ export default function Experience({ data, setData }) {
                 currId={currData.id}
             />
             <FormField
-                name="end date"
+                name="End"
                 type="date"
                 key="end"
                 fieldId="end"
@@ -112,7 +112,7 @@ export default function Experience({ data, setData }) {
                 currId={currData.id}
             />
             <FormField
-                name="location"
+                name="Location"
                 key="location"
                 fieldId="location"
                 onChange={onChange}

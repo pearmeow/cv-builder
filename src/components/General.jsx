@@ -18,19 +18,19 @@ export default function General({ data, setData }) {
     return (
         <FieldSet name="General">
             <FormField
-                name="name"
+                name="Name"
                 fieldId="name"
                 onChange={onChange}
                 value={data.name}
             />
             <FormField
-                name="email"
+                name="Email"
                 fieldId="email"
                 onChange={onChange}
                 value={data.email}
             />
             <FormField
-                name="phone number"
+                name="Phone"
                 fieldId="phone"
                 type="tel"
                 onChange={onChange}

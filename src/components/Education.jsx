@@ -68,7 +68,7 @@ export default function Education({ data, setData }) {
     return (
         <FieldSet name="Education">
             <FormField
-                name="school name"
+                name="School"
                 key="school"
                 fieldId="school"
                 onChange={onChange}
@@ -76,7 +76,7 @@ export default function Education({ data, setData }) {
                 currId={currData.id}
             />
             <FormField
-                name="title of study"
+                name="Degree"
                 key="study"
                 fieldId="study"
                 onChange={onChange}
@@ -84,7 +84,7 @@ export default function Education({ data, setData }) {
                 currId={currData.id}
             />
             <FormField
-                name="start date"
+                name="Start"
                 type="date"
                 key="start"
                 fieldId="start"
@@ -93,7 +93,7 @@ export default function Education({ data, setData }) {
                 currId={currData.id}
             />
             <FormField
-                name="end date"
+                name="End"
                 type="date"
                 key="end"
                 fieldId="end"
@@ -102,7 +102,7 @@ export default function Education({ data, setData }) {
                 currId={currData.id}
             />
             <FormField
-                name="location"
+                name="Location"
                 key="location"
                 fieldId="location"
                 onChange={onChange}

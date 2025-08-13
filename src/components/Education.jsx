@@ -28,6 +28,7 @@ export default function Education({ data, setData }) {
                 study: "",
                 start: "",
                 end: "",
+                location: "",
             },
         ]);
         setIndex(data.length);
@@ -84,6 +85,14 @@ export default function Education({ data, setData }) {
                 fieldId="end"
                 onChange={onChange}
                 value={currData.end}
+                currId={currData.id}
+            />
+            <FormField
+                name="location"
+                key="location"
+                fieldId="location"
+                onChange={onChange}
+                value={currData.location}
                 currId={currData.id}
             />
             <button onClick={addData} type="button">

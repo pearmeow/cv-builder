@@ -16,6 +16,7 @@ export default function Edit({ setCVData }) {
             study: "Bachelor's Degree of Science in CS",
             start: "2025-08-21",
             end: "2025-08-22",
+            location: "Earth, The Universe",
         },
     ]);
     let [expData, setExpData] = useState([
@@ -26,6 +27,7 @@ export default function Edit({ setCVData }) {
             responsibilities: "A whole bunch of pearing",
             start: "2069-01-01",
             end: "2000-12-31",
+            location: "Sun, The Solar System",
         },
     ]);
     function rerenderCV() {
@@ -48,6 +50,7 @@ export default function Edit({ setCVData }) {
                     <h3>
                         {data.start} to {data.end}
                     </h3>
+                    <h3>{data.location}</h3>
                 </>,
             );
         }
@@ -61,6 +64,7 @@ export default function Edit({ setCVData }) {
                     <h3>
                         {data.start} to {data.end || "now"}
                     </h3>
+                    <h3>{data.location}</h3>
                     {data.responsibilities}
                 </>,
             );

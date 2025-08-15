@@ -15,6 +15,10 @@ Features
 - [x] Should be able to resubmit the inputs afterward
 - [x] Nice styling with css
 
+How to use this project
+-----------------------
+Visit the live link (here)[https://pearmeow-cv-builder.netlify.app]! Or clone the repo and run `npm install` and `npm run dev`.
+
 Credits
 -------
 
